@@ -1,6 +1,7 @@
 package com.dominolab.actors
 
 import akka.actor.Actor
+import com.dominolab.actors.AkkaMessages.NextTask
 import com.dominolab.common.{IntTask, Tasks}
 
 class ProducerActor(totalTasks : Int) extends Actor{

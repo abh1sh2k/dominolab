@@ -1,6 +1,7 @@
 package com.dominolab.actors
 
 import akka.actor.{Actor, ActorRef}
+import com.dominolab.actors.AkkaMessages.NextTask
 import com.dominolab.common.Task
 
 class ConsumerActor(producer: ActorRef) extends Actor{

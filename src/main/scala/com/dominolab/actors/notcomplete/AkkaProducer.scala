@@ -19,9 +19,10 @@ class AkkaProducer(tasks : Tasks, duration: FiniteDuration = (100 milliseconds))
     case NextTask => {
       if (tasks.hasNext)
         sender() ! QueueWork(tasks.next())
-      else
+      else {
         sender() ! NoMoreRemainingTask
-      self ! PoisonPill
+        self ! PoisonPill
+      }
     }
     case QueueFull =>
       become(paused)

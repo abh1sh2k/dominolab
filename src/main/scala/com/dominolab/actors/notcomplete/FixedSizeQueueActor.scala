@@ -30,7 +30,9 @@ class FixedSizeQueueActor(producer:ActorRef, size: Int) extends Actor {
       } else {
         consumer ! QueueEmpty
       }
-    case NoMoreRemainingTask => context.parent ! NoMoreRemainingTask
+    case NoMoreRemainingTask => {
+      context.parent ! NoMoreRemainingTask
+    }
 
   }
 }
